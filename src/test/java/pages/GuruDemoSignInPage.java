@@ -8,31 +8,29 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class GuruDemoSignInPage {
-    public GuruDemoSignInPage(){
-        WebDriver driver= Driver.getDriver();
+    public GuruDemoSignInPage() {
+        WebDriver driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
     }
-    @FindBy(id="email")
+
+    @FindBy(id = "email")
     public WebElement emailLogin;
 
-    @FindBy(id="passwd")
+    @FindBy(id = "passwd")
     public WebElement passwordLogin;
 
-    @FindBy(id="SubmitLogin")
+    @FindBy(id = "SubmitLogin")
     public WebElement sighIn;
 
-     @FindBy(tagName = "h3")
-     public  WebElement message;
+    @FindBy(tagName = "h3")
+    public WebElement message;
 
-
-    public void loginDemoGuru(){
+    public void loginDemoGuru() {
         Driver.getDriver().get(ConfigReader.getProperty("GuruDemoURL"));
         emailLogin.sendKeys("admin@mindtek.com");
         passwordLogin.sendKeys("admin");
         sighIn.click();
     }
-
-
 
 
 }

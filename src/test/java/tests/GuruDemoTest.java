@@ -3,17 +3,18 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.GuruDemoSignInPage;
-import pages.GuruPaymentGetawayProject;
-import utilities.ConfigReader;
+import pages.GuruPaymentGetawayProjectPage;
+import pages.ThreeToysPaymentPage;
+import utilities.BrowserUtils;
+import utilities.Driver;
 import utilities.TestBase;
 
 public class GuruDemoTest extends TestBase {
     GuruDemoSignInPage demo = new GuruDemoSignInPage();
-    GuruPaymentGetawayProject payment=new GuruPaymentGetawayProject();
+    GuruPaymentGetawayProjectPage payment=new GuruPaymentGetawayProjectPage();
 
     @Test
     public void firstTest() {
-
         demo.loginDemoGuru();
         String actualMessage = demo.message.getText();
         String expectedMessage = "Successfully Logged in...";
@@ -35,6 +36,10 @@ public class GuruDemoTest extends TestBase {
     public void thirdTest(){
         demo.loginDemoGuru();
         payment.paymentGateway.click();
+        BrowserUtils.scrollUpOrDown(300);
+        ThreeToysPaymentPage threeToys=new ThreeToysPaymentPage();
+        threeToys.buyThreeToys();
+
 
 
 

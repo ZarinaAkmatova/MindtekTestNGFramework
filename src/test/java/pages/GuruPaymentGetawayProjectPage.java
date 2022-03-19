@@ -6,22 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class GuruPaymentGetawayProject {
-    public GuruPaymentGetawayProject() {
+public class GuruPaymentGetawayProjectPage {
+    public GuruPaymentGetawayProjectPage() {
         WebDriver driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
 
     }
-
-    @FindBy(id = "email")
-    public WebElement emailLogin;
-
-    @FindBy(id = "passwd")
-    public WebElement passwordLogin;
-
-    @FindBy(id = "SubmitLogin")
-    public WebElement sighIn;
-
     @FindBy(xpath = "//a[@href='http://demo.guru99.com/payment-gateway/index.php']")
     public WebElement paymentGateway;
 
@@ -53,8 +43,6 @@ public class GuruPaymentGetawayProject {
     public WebElement paymentMessage;
 
     public void checkOut() {
-
-
         buyNow.click();
         payAmount.getText();
         visa.click();
